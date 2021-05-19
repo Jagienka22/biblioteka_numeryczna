@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1621462728 source:d:\biblioteka_numeryczna\jacobiego.cpp
+	"Jacobiego.hpp"
+	"common.hpp"
+
+1621463214 source:d:\biblioteka_numeryczna\common.cpp
+	"common.hpp"
+	<fstream>
+
+1621462630 d:\biblioteka_numeryczna\jacobiego.hpp
+
+1621462916 d:\biblioteka_numeryczna\common.hpp
+	<iostream>
+	<cmath>
+
+1621462940 source:d:\biblioteka_numeryczna\main.cpp
+	"common.hpp"
+	"Jacobiego.hpp"
+
