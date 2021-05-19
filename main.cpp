@@ -1,6 +1,6 @@
 #include "common.hpp"
 #include "Jacobiego.hpp"
-//#include "QR.hpp"
+#include "QR.hpp"
 
 using namespace std;
 
@@ -13,7 +13,7 @@ int main(int argc, char * const argv[])
             cout<<"Wybrales QR"<<endl<<endl;
             double **macierz_A = odczytaj_dane_z_pliku(argv[2]);
             cout<<endl<<"Wynik:"<<endl;
-            //QR_oblicz(macierz_A, argv[3]);
+            QR_oblicz(macierz_A);
         }
         else if (argv[1] == string("-Jacobiego") && argc == 4)
         {
