@@ -3,7 +3,7 @@
 	"Jacobiego.hpp"
 	"common.hpp"
 
-1621463214 source:d:\biblioteka_numeryczna\common.cpp
+1621464102 source:d:\biblioteka_numeryczna\common.cpp
 	"common.hpp"
 	<fstream>
 
@@ -13,13 +13,20 @@
 	<iostream>
 	<cmath>
 
-1621462940 source:d:\biblioteka_numeryczna\main.cpp
+1621463582 source:d:\biblioteka_numeryczna\main.cpp
 	"common.hpp"
 	"Jacobiego.hpp"
+	"QR.hpp"
 
 1621463564 source:d:\biblioteka_numeryczna\qr.cpp
 	"QR.hpp"
 	"common.hpp"
 
 1621463555 d:\biblioteka_numeryczna\qr.hpp
+
+1621464932 source:d:\biblioteka_numeryczna\lu.cpp
+	"LU.hpp"
+	"common.hpp"
+
+1621465024 d:\biblioteka_numeryczna\lu.hpp
 

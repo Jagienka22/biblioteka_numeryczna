@@ -7,6 +7,12 @@ int N;
 double** odczytaj_dane_z_pliku(char *nazwa_pliku)
 {
     ifstream odczyt(nazwa_pliku);
+    if(odczyt.good()==false)
+    {
+        odczyt.close();
+        cout<<"Nie ma takiego pliku";
+        return new double *[0];
+    }
     odczyt>>N;
 
     double **macierz_A = new double *[N];
@@ -19,6 +25,7 @@ double** odczytaj_dane_z_pliku(char *nazwa_pliku)
             odczyt>>macierz_A[i][j];
         }
     }
+    odczyt.close();
     return macierz_A;
 }
 //macierz1, macierz2, macierz wynikowa
