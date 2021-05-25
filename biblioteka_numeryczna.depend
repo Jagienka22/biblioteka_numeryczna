@@ -3,30 +3,38 @@
 	"Jacobiego.hpp"
 	"common.hpp"
 
-1621464102 source:d:\biblioteka_numeryczna\common.cpp
+1621975897 source:d:\biblioteka_numeryczna\common.cpp
 	"common.hpp"
 	<fstream>
 
 1621462630 d:\biblioteka_numeryczna\jacobiego.hpp
 
-1621462916 d:\biblioteka_numeryczna\common.hpp
+1621975326 d:\biblioteka_numeryczna\common.hpp
 	<iostream>
 	<cmath>
 
-1621463582 source:d:\biblioteka_numeryczna\main.cpp
+1621974630 source:d:\biblioteka_numeryczna\main.cpp
 	"common.hpp"
-	"Jacobiego.hpp"
 	"QR.hpp"
+	"Jacobiego.hpp"
+	"LU.hpp"
+	"Potegowa.hpp"
 
-1621463564 source:d:\biblioteka_numeryczna\qr.cpp
+1621975330 source:d:\biblioteka_numeryczna\qr.cpp
 	"QR.hpp"
 	"common.hpp"
 
 1621463555 d:\biblioteka_numeryczna\qr.hpp
 
-1621464932 source:d:\biblioteka_numeryczna\lu.cpp
+1621974484 source:d:\biblioteka_numeryczna\lu.cpp
 	"LU.hpp"
 	"common.hpp"
 
 1621465024 d:\biblioteka_numeryczna\lu.hpp
+
+1621975328 d:\biblioteka_numeryczna\potegowa.hpp
+
+1621975377 source:d:\biblioteka_numeryczna\potegowa.cpp
+	"Potegowa.hpp"
+	"common.hpp"
 

@@ -18,5 +18,6 @@ void wypisanie_macierzy(double **macierz);
 void wypisanie_wartosci_wlasnych(double **a);
 void wypisanie_wektorow_wlasnych(double **a);
 void transpozycja_macierzy(double **macierz, double **wynik);
+void macierz_razy_wektor(double **macierz, double *wektor, double *wynik);
 
 #endif

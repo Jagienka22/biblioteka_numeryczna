@@ -32,6 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Jacobiego.cpp" />
+		<Unit filename="Jacobiego.hpp" />
+		<Unit filename="LU.cpp" />
+		<Unit filename="LU.hpp" />
+		<Unit filename="QR.cpp" />
+		<Unit filename="QR.hpp" />
+		<Unit filename="common.cpp" />
+		<Unit filename="common.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

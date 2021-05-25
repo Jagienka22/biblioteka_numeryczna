@@ -17,9 +17,6 @@ void LU_oblicz(double **macierz_A)
     }
 
     bool trueFalse = faktoryzuj_LU(macierz_A, LU, wek, 0);
-    cout<<"Przed faktoryzacja"<<endl;
-    wypisanie_macierzy(macierz_A);
-    cout<<endl<<endl;
     if(trueFalse)
     {
         wypisanie_LU(LU, L, U, wek);

@@ -4,7 +4,7 @@
 
 void QR_oblicz(double **macierz_A)
 {
-    double ***H = new double **[N]; //uzywamy tylko do N-1
+    double ***H = new double **[N];
     double **R = new double *[N];
     double **pr = new double *[N];
     double **Q = new double *[N];
@@ -29,7 +29,7 @@ void QR_oblicz(double **macierz_A)
 
     double dzielnik;
     int i = 0;
-    for(i=0; wyznacz_max_poza_diagonalia(macierz_A) && i < 10000; i++)
+    for(i=0; (wyznacz_max_poza_diagonalia(macierz_A) || i < 2) && i < 10000; i++)
     {
         for(int k=0; k<N-1; k++)
         {
@@ -58,11 +58,6 @@ void QR_oblicz(double **macierz_A)
         if(N == 2)
         {
             kopiuj_macierz(H[0], Q);
-            /*cout<<"Q"<<endl;
-            wypisanie_macierzy(Q);
-            cout<<"R"<<endl;
-            wypisanie_macierzy(R);*/
-
         }
         else
         {
@@ -88,27 +83,31 @@ void QR_oblicz(double **macierz_A)
         }
 
         mnozenie_macierzy(R, Q, macierz_A);
-        /*cout<<"Macierz A"<<endl;
-        wypisanie_macierzy(macierz_A);*/
-        //cout<<i<<endl;
     }
-    cout<<"Dokladnosc: "<<DOKLADNOSC<<" lub 10 000 rotacji"<<endl;
+    cout<<"Dokladnosc: "<<DOKLADNOSC<<endl;
     cout<<"Uzyto rotacji: "<<i<<endl;
-    cout<<"Wartosci wlasne:"<<endl;
-    wypisanie_wartosci_wlasnych(macierz_A);
-
-    cout<<endl<<"wektory wlasne:"<<endl;
-    for(int i=0; i<N; i++)
+    if(i == 10000)
     {
-        wyznacz_wektor_x(macierz_A, i, wektor);
-        macierz_razy_wektor(Q_mnozenie, wektor, wektor_wynikowy);
-        cout<<"{";
+        cout<<"Program nie byl w stanie obliczyc wartosci i wektorow wlasnych";
+    }
+    else
+    {
+        cout<<"Wartosci wlasne:"<<endl;
+        wypisanie_wartosci_wlasnych(macierz_A);
+
+        cout<<endl<<"wektory wlasne:"<<endl;
         for(int i=0; i<N; i++)
         {
-            cout<<wektor_wynikowy[i];
-            if(i+1 != N) cout<<", ";
+            wyznacz_wektor_x(macierz_A, i, wektor);
+            macierz_razy_wektor(Q_mnozenie, wektor, wektor_wynikowy);
+            cout<<"{";
+            for(int i=0; i<N; i++)
+            {
+                cout<<wektor_wynikowy[i];
+                if(i+1 != N) cout<<", ";
+            }
+            cout<<"}"<<endl;
         }
-        cout<<"}"<<endl;
     }
 }
 //funkcja przygotowuje wektor v i zwraca jego dlugosc
@@ -150,26 +149,13 @@ bool wyznacz_max_poza_diagonalia(double **macierz)
     double elem;
 
     for(int i=0; i<N; i++)
-        for(int j=0; j<N; j++)
+        for(int j=i+1; j<N; j++)    //zawsze w dolnej polowce
         {
-            if(i != j)
-            {
-                elem = abs(macierz[j][i]);
-                if(elem > m) m = elem;
-            }
+            elem = abs(macierz[j][i]);
+            if(elem > m) m = elem;
         }
     return m > DOKLADNOSC;
 }
-void macierz_razy_wektor(double **macierz, double *wektor, double *wynik)
-{
-    for(int i=0; i<N; i++)
-    {
-        wynik[i] = 0;
-        for(int j=0; j<N; j++)
-            wynik[i] += macierz[i][j] * wektor[j];
-    }
-}
-
 void wyznacz_wektor_x(double **macierz, int numer, double *wektor)
 {
     for(int j=N-1; j>numer; j--) wektor[j] = 0;

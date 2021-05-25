@@ -1,7 +1,8 @@
 #include "common.hpp"
-#include "Jacobiego.hpp"
 #include "QR.hpp"
+#include "Jacobiego.hpp"
 #include "LU.hpp"
+#include "Potegowa.hpp"
 
 using namespace std;
 
@@ -13,6 +14,8 @@ int main(int argc, char * const argv[])
         {
             cout<<"Wybrales QR"<<endl<<endl;
             double **macierz_A = odczytaj_dane_z_pliku(argv[2]);
+            cout<<"Dane wejsciowe:"<<endl;
+            wypisanie_macierzy(macierz_A);
             cout<<endl<<"Wynik:"<<endl;
             QR_oblicz(macierz_A);
         }
@@ -20,6 +23,8 @@ int main(int argc, char * const argv[])
         {
             cout<<"Wybrales Jacobiego"<<endl<<endl;
             double **macierz_A = odczytaj_dane_z_pliku(argv[2]);
+            cout<<"Dane wejsciowe:"<<endl;
+            wypisanie_macierzy(macierz_A);
             cout<<endl<<"Wynik:"<<endl;
             Jacobiego_oblicz(macierz_A, argv[3]);
         }
@@ -27,8 +32,19 @@ int main(int argc, char * const argv[])
         {
             cout<<"Wybrales LU"<<endl<<endl;
             double **macierz_A = odczytaj_dane_z_pliku(argv[2]);
+            cout<<"Dane wejsciowe:"<<endl;
+            wypisanie_macierzy(macierz_A);
             cout<<endl<<"Wynik:"<<endl;
             LU_oblicz(macierz_A);
+        }
+        else if (argv[1] == string("-Potegowa") && argc == 3)
+        {
+            cout<<"Wybrales Potegowa"<<endl<<endl;
+            double **macierz_A = odczytaj_dane_z_pliku(argv[2]);
+            cout<<"Dane wejsciowe:"<<endl;
+            wypisanie_macierzy(macierz_A);
+            cout<<endl<<"Wynik:"<<endl;
+            Potegowa_oblicz(macierz_A);
         }
         else if (argv[1] == string("-h"))
         {
@@ -36,6 +52,7 @@ int main(int argc, char * const argv[])
             cout<<"-QR nazwa_pliku - oblicza wektory i wartosci wlasne za pomoca algorytmu QR"<<endl;
             cout<<"-Jacobiego nazwa_pliku (meteoda(c lub m)) - oblicza wektory i wartoœci wlasne za pomoca algorytmu Jacobiego"<<endl;
             cout<<"-LU nazwa_pliku - dokonuje rozkladu LU macierzy"<<endl;
+            cout<<"-Potegowa nazwa_pliku - wypisuje wartosc wiodacej i podwiodacej oraz odpowiadajacej im wektorom wlasnym za pomoca metody potegowej"<<endl;
         }
         else
             cout<<"Niepoprawne parametry, mozesz podac parametr '-h' aby dowiedziec sie wiecej";

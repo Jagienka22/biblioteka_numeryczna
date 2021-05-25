@@ -95,3 +95,12 @@ void transpozycja_macierzy(double **macierz, double **wynik)
         }
     }
 }
+void macierz_razy_wektor(double **macierz, double *wektor, double *wynik)
+{
+    for(int i=0; i<N; i++)
+    {
+        wynik[i] = 0;
+        for(int j=0; j<N; j++)
+            wynik[i] += macierz[i][j] * wektor[j];
+    }
+}
